@@ -4,10 +4,13 @@
 
 int main()
 {
-    printf ( "shell> start\n"); initialize() ;
-        printmemory() ;
-        printsegmenttable() ;
-        printf ( "shell> end\n");
-    return 0; 
+    printf ( "shell> start\n");
+
+    initialize() ;
+
+    printmemory() ;
+    printsegmenttable() ;
     
+    printf ( "shell> end\n");
+    return 0; 
 }
