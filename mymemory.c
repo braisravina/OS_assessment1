@@ -42,9 +42,6 @@ void initialize ()
    segment0.next = NULL;
    segmenttable = &segment0;
 
-
-
-
    printf ( "initialize> end\n");
 }
 
@@ -141,4 +138,5 @@ int main()
    initialize();
    printmemory();
    printsegmentdescriptor(segmenttable);
+   
 }
