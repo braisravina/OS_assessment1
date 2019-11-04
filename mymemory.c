@@ -103,7 +103,7 @@ void printmemory ()
          printf(" %02x ", mymemory[n]);
       }
        n = n-10;
-       printf("| ");
+       printf(" |  ");
       for(i=0; i<10; i++){
          n = n+1;
          c = mymemory[n];
