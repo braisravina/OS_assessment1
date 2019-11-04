@@ -33,7 +33,6 @@ void initialize ()
    
    // initialise the segment
 
-   //Segment_t segment_0;
    //segmenttable = malloc(sizeof(Segment_t));
    Segment_t segment0;
    segment0.allocated = FALSE;
@@ -98,7 +97,7 @@ void printmemory ()
    int n, i;
    char c;
    for(n=0; n<MAXMEM; n++){
-      printf("[%i]",n);
+      printf("[%4d]",n);
       for(i=0; i<10; i++){
          n = n+1;
          printf(" %02x ", mymemory[n]);
