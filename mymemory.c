@@ -99,13 +99,13 @@ void printmemory ()
    int n, i;
    char c;
    for(n=0; n<MAXMEM; n++){
-      printf("{%i}",n);
+      printf("[ %i]",n);
       for(i=0; i<10; i++){
          n = n+1;
-         printf("%02x", mymemory[n]);
+         printf(" %02x ", mymemory[n]);
       }
        n = n-10;
-       printf("|");
+       printf("| ");
       for(i=0; i<10; i++){
          n = n+1;
          c = mymemory[n];
