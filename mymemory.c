@@ -22,7 +22,7 @@ void initialize ()
    // set mymemory to \0
    int n=0;
    for (n;n<MAXMEM;n++){
-      mymemory[n]=0;
+      mymemory[n] = '\0';
    }
 
    // create segment table
@@ -40,6 +40,8 @@ void initialize ()
    segment0.start = &mymemory[0];
    segment0.size = MAXMEM;
    segment0.next = NULL;
+   segmenttable = &segment0;
+
 
 
 
@@ -124,6 +126,8 @@ void printmemory ()
 
 void printsegmenttable()
 {
+   
+
 }
 
 void printsegmentdescriptor ( Segment_t * descriptor )
@@ -137,4 +141,5 @@ int main()
 {
    initialize();
    printmemory();
+   printsegmenttable();
 }
