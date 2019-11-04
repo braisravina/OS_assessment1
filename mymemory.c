@@ -101,7 +101,7 @@ void printmemory ()
    int n, i;
    char c;
    for(n=0; n<MAXMEM; n++){
-      printf("[ %i]",n);
+      printf("[%i]",n);
       for(i=0; i<10; i++){
          n = n+1;
          printf(" %02x ", mymemory[n]);
@@ -141,5 +141,5 @@ int main()
 {
    initialize();
    printmemory();
-   printsegmenttable();
+   printsegmentdescriptor(segmenttable);
 }
