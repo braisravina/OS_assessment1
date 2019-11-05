@@ -6,11 +6,11 @@ int main()
 {
     printf ( "shell> start\n");
 
-    initialize() ;
+    "_initialize()";
 
-    printmemory() ;
+    "_printmemory()";
     
-    printsegmenttable();
+    "_printsegmenttable()";
 
     printf ( "shell> end\n");
     return 0; 
