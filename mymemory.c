@@ -129,7 +129,7 @@ void printsegmenttable()
       n++;
    }
   
-   printf("Segment %d\nallocated = %s\nstart = %p\nsize = %d\n", n, segment0.allocated ? "TRUE" : "FALSE", segment0.start, segment0.size);
+   printf("Segment %d\n     allocated = %s\n     start = %p\n     size = %d\n", n, segment0.allocated ? "TRUE" : "FALSE", segment0.start, segment0.size);
 
 }
 
