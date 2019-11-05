@@ -39,7 +39,7 @@ void initialize ()
    segment0.start = &mymemory[0];
    segment0.size = MAXMEM;
    segment0.next = NULL;
-   segmenttable = &segment0;
+   
 
    printf ( "initialize> end\n");
 }
@@ -122,6 +122,14 @@ void printmemory ()
 
 void printsegmenttable()
 {
+   int n = 0;
+   Segment_t segment0;
+   while (&segment0 != NULL && &segment0 <= MAXMEM) {
+      segment0.next;
+      n++;
+   }
+  
+   printf("Segment %d\nallocated = %s\nstart = %p\nsize = %d\n", n, segment0.allocated ? "TRUE" : "FALSE", segment0.start, segment0.size);
 
 }
 
@@ -136,6 +144,6 @@ int main()
 {
    initialize();
    printmemory();
-   printsegmentdescriptor(segmenttable);
+   printsegmenttable();
    
 }
