@@ -21,7 +21,7 @@ void initialize ()
 
    // set mymemory to \0
    int n=0;
-   for (n;n<MAXMEM;n++){
+   for (n; n<MAXMEM; n++){
       mymemory[n] = '\0';
    }
 
@@ -30,7 +30,7 @@ void initialize ()
    // as one free segment
    //
    // create a single segment descriptor
-   
+
    // initialise the segment
 
    //segmenttable = malloc(sizeof(Segment_t));
@@ -95,19 +95,19 @@ int isPrintable ( int c )
 void printmemory ()
 {
    int n, i;
-   char c;
+   char j;
    for(n=0; n<MAXMEM; n++){
       printf("[%4d]",n);
       for(i=0; i<10; i++){
          n = n+1;
          printf(" %02x ", mymemory[n]);
       }
-       n = n-10;
-       printf(" |  ");
+      n = n-10;
+      printf(" |  ");
       for(i=0; i<10; i++){
          n = n+1;
-         c = mymemory[n];
-         if (c>=0x20 && c<=0x7e){
+         j = mymemory[n];
+         if (j>=0x20 && j<=0x7e){
             printf("%c", mymemory[n]);
          }
          else{
