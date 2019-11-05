@@ -40,8 +40,8 @@ void initialize ()
    segment0.size = MAXMEM;
    segment0.next = NULL;
    
-
    printf ( "initialize> end\n");
+
 }
 
 //void myfree ( void * ptr )
@@ -73,7 +73,6 @@ void mydefrag ( void ** ptrlist)
 Segment_t * findFree ( Segment_t * list, size_t size )
 {
    printf ( "findFree> start\n");
-
 
 }
 
@@ -138,6 +137,7 @@ void printsegmentdescriptor ( Segment_t * descriptor )
       printf ( "\tallocated = %s\n" , (descriptor->allocated == FALSE ? "FALSE" : "TRUE" ) ) ;
       printf ( "\tstart     = %p\n" , descriptor->start ) ;
       printf ( "\tsize      = %lu\n", descriptor->size  ) ;
+      
 }
 
 int main()
