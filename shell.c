@@ -9,7 +9,7 @@ int main()
     initialize() ;
 
     printmemory() ;
-    printsegmentdiscriptor(segmenttable) ;
+    printsegmentdescriptor(segmenttable) ;
 
     printf ( "shell> end\n");
     return 0; 
