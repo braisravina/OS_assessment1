@@ -12,7 +12,7 @@
 
 // our memory
 Byte        mymemory [MAXMEM] ;
-Segment_t * segmenttable = NULL;
+Segment_t * segmentable = NULL;
 
 
 void initialize ()
@@ -33,12 +33,12 @@ void initialize ()
 
    // initialise the segment
 
-   //segmenttable = malloc(sizeof(Segment_t));
-   Segment_t segment0;
-   segment0.allocated = FALSE;
-   segment0.start = &mymemory[0];
-   segment0.size = MAXMEM;
-   segment0.next = NULL;
+   segmentable = malloc(sizeof(Segment_t));
+   segmentable->allocated = FALSE;
+   segmentable->start = (void*)mymemory;
+   segmentable->size = MAXMEM;
+   segmentable->next = NULL;
+
    
    printf ( "initialize> end\n");
 
@@ -122,13 +122,13 @@ void printmemory ()
 void printsegmenttable()
 {
    int n = 0;
-   Segment_t segment0;
-   while (&segment0 != NULL && &segment0 <= MAXMEM) {
-      segment0.next;
+   
+   while (segmentable != NULL && segmentable <= MAXMEM) {
+      segmentable->next;
       n++;
    }
   
-   printf("Segment %d\n     allocated = %s\n     start = %p\n     size = %d\n", n, segment0.allocated ? "TRUE" : "FALSE", segment0.start, segment0.size);
+   printf(" Segment %d\n     allocated = %s\n     start = %p\n     size = %d\n", n, segmentable->allocated ? "TRUE" : "FALSE", segmentable->start, segmentable->size);
 
 }
 
@@ -137,7 +137,7 @@ void printsegmentdescriptor ( Segment_t * descriptor )
       printf ( "\tallocated = %s\n" , (descriptor->allocated == FALSE ? "FALSE" : "TRUE" ) ) ;
       printf ( "\tstart     = %p\n" , descriptor->start ) ;
       printf ( "\tsize      = %lu\n", descriptor->size  ) ;
-      
+
 }
 
 int main()
