@@ -31,7 +31,7 @@ typedef struct segmentdescriptor {
 } Segment_t ;
 
 
-extern Segment_t * segmenttable;
+extern Segment_t * segmentable;
 
 
 // forward references, user interface
