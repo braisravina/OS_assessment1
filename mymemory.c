@@ -139,11 +139,3 @@ void printsegmentdescriptor ( Segment_t * descriptor )
       printf ( "\tsize      = %lu\n", descriptor->size  ) ;
 
 }
-
-int main()
-{
-   initialize();
-   printmemory();
-   printsegmenttable();
-   
-}
