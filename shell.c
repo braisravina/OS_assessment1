@@ -1,7 +1,6 @@
 #include <stdio.h> 
 #include <string.h> 
 #include "mymemory.h"
-#include "mymemory.c"
 
 int main()
 {
