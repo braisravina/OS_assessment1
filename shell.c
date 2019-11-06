@@ -1,17 +1,18 @@
 #include <stdio.h> 
 #include <string.h> 
 #include "mymemory.h"
+#include "mymemory.c"
 
 int main()
 {
     printf ( "shell> start\n");
 
-    "_initialize()";
+    initialize() ;
 
-    "_printmemory()";
-    
-    "_printsegmenttable()";
+    printmemory() ;
+    printsegmenttable() ;
 
     printf ( "shell> end\n");
     return 0; 
+
 }
