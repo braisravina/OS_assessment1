@@ -4,14 +4,21 @@
 
 int main()
 {
-    printf ( "shell> start\n");
+    printf("shell> start\n"); 
+    initialize();
 
-    initialize() ;
+    char * ptr1 = (char *) mymalloc (10) ;
+    strcpy(ptr1, "this test");
+    printf("shell> content of allocated memory: %s\n", ptr1) ;
 
-    printmemory() ;
-    printsegmenttable() ;
+    char * ptr2 = (char *) mymalloc (10) ;
+    strcpy (ptr2, "this test");
+    printf("shell> content of allocated memory: %s\n", ptr2) ;
 
-    printf ( "shell> end\n");
-    return 0; 
+    printmemory();
+    printsegmenttable();
+
+    printf("shell> end\n");
+    return 0;
 
 }
