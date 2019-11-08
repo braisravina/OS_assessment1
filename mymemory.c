@@ -15,7 +15,7 @@ Byte        mymemory [MAXMEM] ;
 Segment_t * segmentable = NULL;
 
 
-void initialize ()
+void initialize()
 {
    printf ( "initialize> start\n");
 
@@ -40,58 +40,82 @@ void initialize ()
    segmentable->next = NULL;
 
    
-   printf ( "initialize> end\n");
+   printf("initialize> end\n");
 
 }
 
-//void myfree ( void * ptr )
-//{
-
-//}
-
-void * mymalloc ( size_t size )
+void * mymalloc(size_t size)
 {
-   printf ( "mymalloc> start\n");
-
+   printf("mymalloc> start\n");
    // implement the mymalloc functionality
+   Segment_t * seg = findFree (segmentable, size);
+   if(seg != NULL){
+      Segment_t * segmentnew = malloc(sizeof(Segment_t));
+      segmentnew->allocated = FALSE;
+      segmentnew->start = seg->start;
+      segmentnew->size = seg->size;
+
+      seg->allocated = TRUE;
+      seg->size = size;
+      insertAfter(seg, segmentnew);
+      printf ("mymalloc> end\n");
+      return seg->start;
+
+   }
+
 }
 
-void myfree ( void * ptr )
+void myfree(void * ptr)
 {
-   printf ( "myfree> start\n");
+   printf( "myfree> start\n");
+
+   printf("myfree> end\n");
 
 }
 
-void mydefrag ( void ** ptrlist)
+void mydefrag(void ** ptrlist)
 {
-   printf ( "mydefrag> start\n");
+   printf("mydefrag> start\n");
+
+   printf("mydefrag> end\n");
 
 }
 
 
 // helper functions for management segmentation table
-Segment_t * findFree ( Segment_t * list, size_t size )
+Segment_t * findFree(Segment_t * list, size_t size)
 {
    printf ( "findFree> start\n");
+	while (((list->size) < size) || ((list->allocated) == TRUE)) {
+      if (list->next == NULL){
+         return NULL;
+      }
+      list = list->next;
+   }
+   return list;
 
 }
 
-void insertAfter ( Segment_t * oldSegment, Segment_t * newSegment )
+void insertAfter(Segment_t * oldSegment, Segment_t * newSegment)
 {
+   newSegment->next = oldSegment->next;
+   oldSegment->next = newSegment;
+
 }
 
-Segment_t * findSegment ( Segment_t * list, void * ptr )
+Segment_t * findSegment(Segment_t * list, void * ptr)
 {
+
 }
 
-int isPrintable ( int c )
+int isPrintable(int c)
 {
-   if ( c >= 0x20 && c <= 0x7e ) return c ;
-
+   if (c >= 0x20 && c <= 0x7e) return c ;
    return 0 ;
+
 }
 
-void printmemory ()
+void printmemory()
 {
    int n, i;
    char j;
@@ -116,14 +140,13 @@ void printmemory ()
       n = n-1;
       printf("\n");
    }
-
 }
 
 void printsegmenttable()
 {
    int n = 0;
    
-   while (segmentable != NULL && segmentable <= MAXMEM) {
+   while (segmentable != NULL && segmentable <= MAXMEM){
       segmentable->next;
       n++;
    }
@@ -132,10 +155,10 @@ void printsegmenttable()
 
 }
 
-void printsegmentdescriptor ( Segment_t * descriptor )
+void printsegmentdescriptor(Segment_t * descriptor)
 {
-      printf ( "\tallocated = %s\n" , (descriptor->allocated == FALSE ? "FALSE" : "TRUE" ) ) ;
-      printf ( "\tstart     = %p\n" , descriptor->start ) ;
-      printf ( "\tsize      = %lu\n", descriptor->size  ) ;
+      printf("\tallocated = %s\n" , (descriptor->allocated == FALSE ? "FALSE" : "TRUE")) ;
+      printf("\tstart     = %p\n" , descriptor->start) ;
+      printf("\tsize      = %lu\n", descriptor->size) ;
 
 }
